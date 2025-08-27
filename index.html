@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="star-background"></div>
+    
+    <header class="header">
+        <nav class="liquid-glass-menu">
+            <a href="index.html">Inicio</a>
+            <a href="proyectos.html">Proyectos</a>
+            <a href="acerca-de-mi.html">Acerca de mí</a>
+            <a href="contacto.html">Contacto</a>
+            <label class="switch">
+                <input type="checkbox" id="theme-toggle">
+                <span class="slider round"></span>
+            </label>
+        </nav>
+    </header>
+
+    <div id="page-transition-container">
+        <main>
+            <section id="inicio" class="neumorphic-card">
+                <h1 class="fade-in">Hola, mi nombre es Andres Hernandez 👋</h1>
+                <p class="fade-in delay-1">Diseñador web apasionado por el arte y la tecnología. Bienvenido a mi espacio.</p>
+            </section>
+
+            <section id="introduction" class="neumorphic-card fade-in delay-2">
+                <h2>Creando experiencias digitales únicas.</h2>
+                <p>Me especializo en el diseño y desarrollo de interfaces de usuario intuitivas y atractivas. Mi objetivo es transformar ideas en soluciones visuales que no solo se vean bien, sino que también funcionen perfectamente.</p>
+                <a href="proyectos.html" class="neumorphic-btn cta-btn">Explora mis proyectos</a>
+            </section>
+
+            <section id="featured-project" class="neumorphic-card fade-in delay-3">
+                <h2>Proyecto Destacado</h2>
+                <div class="project-item neumorphic-card">
+                    <h3>App para iOS: StarBudget</h3>
+                    <p>Una aplicación de gestión financiera personal que ayuda a los usuarios a controlar su presupuesto y gastos. Con un toque minimalista y un fondo dinamico de estrellas que le da su toque personal.</p>
+                    <div class="project-media">
+                        <img src="assets/IMG2.PNG" alt="Imagen del proyecto destacado">
+                    </div>
+                    <div class="technologies">
+                        <span>Xcode</span><span>Swift</span>
+                    </div>
+                    <a href="proyectos.html" class="neumorphic-btn project-link">Ver proyecto completo</a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

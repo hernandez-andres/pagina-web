@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos - Mi Portafolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="star-background"></div>
+
+    <header class="header">
+        <nav class="liquid-glass-menu">
+            <a href="index.html">Inicio</a>
+            <a href="proyectos.html">Proyectos</a>
+            <a href="acerca-de-mi.html">Acerca de mí</a>
+            <a href="contacto.html">Contacto</a>
+            <label class="switch">
+                <input type="checkbox" id="theme-toggle">
+                <span class="slider round"></span>
+            </label>
+        </nav>
+    </header>
+
+    <div id="page-transition-container">
+        <main>
+            <section id="proyectos" class="neumorphic-card fade-in">
+                <h2>Mis Proyectos</h2>
+                
+                <div class="project-item neumorphic-card liquid-project-hover fade-in">
+                    <h3>App para iOs: StarBudget</h3>
+                    <p>Una aplicación de gestión financiera personal que ayuda a los usuarios a controlar su presupuesto y gastos. Con un toque minimalista y un fondo dinamico de estrellas que le da su toque personal.</p>
+                    <div class="technologies">
+                        <span>Xcode</span><span>Swift</span><span>iOS</span><span>MacOs</span>
+                    </div>
+                    <div class="project-carousel-container">
+                        <div class="project-carousel">
+                            <img src="assets/IMG1.PNG" alt="Imagen 1 del proyecto 1">
+                            <img src="assets/IMG2.PNG" alt="Imagen 2 del proyecto 1">
+                            <video src="assets/videoStarbudget.MP4" controls></video>
+                        </div>
+                        <button class="carousel-btn prev neumorphic-btn"></button>
+                        <button class="carousel-btn next neumorphic-btn"></button>
+                    </div>
+                </div>
+
+                <div class="project-item neumorphic-card liquid-project-hover fade-in delay-1">
+                    <h3>Nombre del Proyecto 2</h3>
+                    <p>Una descripción detallada del segundo proyecto. ¿Qué aprendiste? ¿Qué herramientas utilizaste? Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <div class="technologies">
+                        <span>React</span><span>Node.js</span><span>MongoDB</span>
+                    </div>
+                    <div class="project-carousel-container">
+                        <div class="project-carousel">
+                            <img src="URL_IMAGEN_3.jpg" alt="Imagen 1 del proyecto 2">
+                            <img src="URL_IMAGEN_4.jpg" alt="Imagen 2 del proyecto 2">
+                        </div>
+                        <button class="carousel-btn prev neumorphic-btn"></button>
+                        <button class="carousel-btn next neumorphic-btn"></button>
+                    </div>
+                </div>
+
+                <div class="project-item neumorphic-card liquid-project-hover fade-in delay-2">
+                    <h3>Nombre del Proyecto 3</h3>
+                    <p>Una descripción detallada del tercer proyecto. Sé conciso y atractivo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <div class="technologies">
+                        <span>Vue.js</span><span>Firebase</span>
+                    </div>
+                    <div class="project-carousel-container">
+                        <div class="project-carousel">
+                            <img src="URL_IMAGEN_5.jpg" alt="Imagen 1 del proyecto 3">
+                        </div>
+                        <button class="carousel-btn prev neumorphic-btn"></button>
+                        <button class="carousel-btn next neumorphic-btn"></button>
+                    </div>
+                </div>
+
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

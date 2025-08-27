@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Mi Portafolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="star-background"></div>
+
+    <header class="header">
+        <nav class="liquid-glass-menu">
+            <a href="index.html">Inicio</a>
+            <a href="proyectos.html">Proyectos</a>
+            <a href="acerca-de-mi.html">Acerca de mí</a>
+            <a href="contacto.html">Contacto</a>
+            <label class="switch">
+                <input type="checkbox" id="theme-toggle">
+                <span class="slider round"></span>
+            </label>
+        </nav>
+    </header>
+    
+    <div id="page-transition-container">
+        <main>
+            <section id="contacto" class="neumorphic-card fade-in">
+                <h2>Contacto</h2>
+                <p>Puedes contactarme a través de...</p>
+                <form class="neumorphic-form">
+                    <input type="text" placeholder="Nombre" class="neumorphic-input">
+                    <input type="email" placeholder="Email" class="neumorphic-input">
+                    <textarea placeholder="Mensaje" class="neumorphic-input"></textarea>
+                    <button type="submit" class="neumorphic-btn send-btn">Enviar</button>
+                </form>
+                
+                <div class="social-icons">
+                    <a href="URL_LINKEDIN" target="_blank" class="social-btn neumorphic-btn">
+                        <img src="https://www.svgrepo.com/show/157049/linkedin.svg" alt="LinkedIn" width="24" height="24">
+                    </a>
+                    <a href="URL_BEHANCE" target="_blank" class="social-btn neumorphic-btn">
+                        <img src="https://www.svgrepo.com/show/475631/behance-color.svg" alt="Behance" width="24" height="24">
+                    </a>
+                    <a href="URL_INSTAGRAM" target="_blank" class="social-btn neumorphic-btn">
+                        <img src="https://www.svgrepo.com/show/512966/instagram-167.svg" alt="Instagram" width="24" height="24">
+                    </a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

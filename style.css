@@ -1,0 +1,628 @@
+:root {
+    --bg-color: #e0e5ec;
+    --shadow-light: #ffffff;
+    --shadow-dark: #a3b1c6;
+    --text-color: #333;
+    --accent-color: #007bff;
+    --star-color-1: #b0c4de; /* Azul claro */
+    --star-color-2: #add8e6; /* Azul cielo */
+    --star-color-3: #87cefa; /* Azul claro más intenso */
+    --star-color-4: #afeeee; /* Turquesa pálido */
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: background-color 0.5s ease, color 0.5s ease;
+    overflow-x: hidden;
+    position: relative; /* Necesario para que el fondo de estrellas funcione */
+    z-index: 1; /* Asegura que el contenido esté encima de las estrellas */
+}
+
+/* --- Modo Oscuro --- */
+body.dark-mode {
+    --bg-color: #1a1a1a;
+    --shadow-light: #2c2c2c;
+    --shadow-dark: #0d0d0d;
+    --text-color: #f0f0f0;
+    --accent-color: #61dafb;
+    --star-color-1: #7fffd4; /* Aguamarina */
+    --star-color-2: #c6e2ff; /* Azul claro */
+    --star-color-3: #ffdead; /* Melocotón */
+    --star-color-4: #e0b0ff; /* Lila */
+}
+
+/* --- Estilo Neumórfico (para el contenido) --- */
+.neumorphic-card {
+    background: var(--bg-color);
+    border-radius: 20px;
+    padding: 40px;
+    margin: 20px;
+    box-shadow: 
+        10px 10px 20px var(--shadow-dark),
+        -10px -10px 20px var(--shadow-light);
+    transition: all 0.3s ease;
+    position: relative; /* Asegura que las cards estén sobre las estrellas */
+    z-index: 2; /* Mayor que el fondo de estrellas */
+}
+
+.neumorphic-card:hover {
+    box-shadow: 
+        5px 5px 10px var(--shadow-dark),
+        -5px -5px 10px var(--shadow-light);
+    transform: translateY(-5px);
+}
+
+.neumorphic-input, .neumorphic-btn {
+    border: none;
+    outline: none;
+    background: var(--bg-color);
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px 0;
+    width: 100%;
+    box-shadow: 
+        inset 5px 5px 10px var(--shadow-dark),
+        inset -5px -5px 10px var(--shadow-light);
+    transition: all 0.3s ease;
+    color: var(--text-color);
+    position: relative; /* Asegura que los elementos estén sobre las estrellas */
+    z-index: 2;
+}
+
+.neumorphic-input:focus {
+    box-shadow: 
+        inset 2px 2px 5px var(--shadow-dark),
+        inset -2px -2px 5px var(--shadow-light);
+}
+
+.neumorphic-btn {
+    cursor: pointer;
+    box-shadow: 
+        5px 5px 10px var(--shadow-dark),
+        -5px -5px 10px var(--shadow-light);
+}
+
+/* Animación de "presión" más pronunciada */
+.neumorphic-btn:active,
+.social-btn:active,
+.carousel-btn:active,
+.switch input:checked + .slider {
+    box-shadow: 
+        inset 5px 5px 10px var(--shadow-dark),
+        inset -5px -5px 10px var(--shadow-light);
+    transform: scale(0.98);
+}
+
+
+/* --- Menú Liquid Glass (para la navegación) --- */
+
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.liquid-glass-menu {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 50px;
+    padding: 10px 20px;
+    display: flex;
+    gap: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 3; /* Asegura que el menú esté siempre encima */
+}
+
+.liquid-glass-menu a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    transition: all 0.4s ease-in-out;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.liquid-glass-menu a::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease-out, height 0.4s ease-out, background 0.4s ease-out;
+    z-index: 0;
+    opacity: 0;
+}
+
+.liquid-glass-menu a:hover::before {
+    width: 200px;
+    height: 200px;
+    opacity: 1;
+}
+
+.liquid-glass-menu a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05) translateY(-2px);
+    color: var(--text-color);
+}
+
+.liquid-glass-menu a.active {
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.5),
+                0 0 10px rgba(0, 0, 0, 0.1);
+    transform: scale(1.02);
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+/* --- Estilos generales --- */
+#page-transition-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+#page-transition-container > main {
+    max-width: 900px;
+    margin: 150px auto 20px;
+    padding: 0 20px;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    position: relative; /* Asegura que main esté sobre las estrellas */
+    z-index: 2;
+}
+
+h1, h2, h3 {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+/* --- Fondo de estrellas animado --- */
+#star-background {
+    position: fixed; /* Fija las estrellas para que cubran toda la pantalla */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Permite interactuar con los elementos debajo */
+    z-index: 0; /* Asegura que esté por debajo de todo el contenido */
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+    /* Eliminamos background y border-radius aquí para usar clip-path */
+    opacity: 0; /* Empieza invisible */
+    animation: move-star linear infinite;
+    mix-blend-mode: screen; /* Mezcla el color de las estrellas con el fondo */
+
+    /* Estilo para la forma de estrella usando clip-path */
+    /* Este clip-path crea una estrella de 5 puntas */
+    clip-path: polygon(
+        50% 0%, 
+        61% 35%, 
+        98% 35%, 
+        68% 57%, 
+        79% 91%, 
+        50% 70%, 
+        21% 91%, 
+        32% 57%, 
+        2% 35%, 
+        39% 35%
+    );
+    background: var(--star-color-1); /* Color base de la estrella */
+    box-shadow: 0 0 8px 3px var(--star-color-1); /* Resplandor más pronunciado */
+    transform-origin: center center; /* Asegura que la transformación (animación) sea desde el centro */
+}
+
+/* Colores para las estrellas con sus sombras */
+.star.color-2 { 
+    background: var(--star-color-2); 
+    box-shadow: 0 0 8px 3px var(--star-color-2); 
+}
+.star.color-3 { 
+    background: var(--star-color-3); 
+    box-shadow: 0 0 8px 3px var(--star-color-3); 
+}
+.star.color-4 { 
+    background: var(--star-color-4); 
+    box-shadow: 0 0 8px 3px var(--star-color-4); 
+}
+
+
+/* Animación de las estrellas */
+@keyframes move-star {
+    0% {
+        transform: translateX(100vw) rotate(0deg); /* Empieza fuera de la pantalla a la derecha y sin rotación */
+        opacity: 0;
+    }
+    10% {
+        opacity: 1; /* Se vuelve visible rápidamente */
+    }
+    90% {
+        opacity: 1; /* Permanece visible la mayor parte del recorrido */
+    }
+    100% {
+        transform: translateX(-100%) rotate(360deg); /* Termina fuera de la pantalla a la izquierda con una rotación completa */
+        opacity: 0; /* Desaparece suavemente */
+    }
+}
+
+
+/* --- Estilos de proyectos --- */
+.project-item {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto Liquid Glass al pasar el mouse sobre el proyecto */
+.liquid-project-hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.liquid-project-hover:hover::before {
+    opacity: 1;
+}
+
+.technologies {
+    margin-top: 15px;
+}
+
+.technologies span {
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.05);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    margin-right: 5px;
+}
+
+/* --- Carrusel de proyectos --- */
+.project-carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 
+        inset 2px 2px 5px var(--shadow-dark),
+        inset -2px -2px 5px var(--shadow-light);
+}
+
+.project-carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.project-carousel img,
+.project-carousel video {
+    min-width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* Rediseño de los botones del carrusel */
+.carousel-btn {
+    position: absolute;
+    bottom: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0;
+    z-index: 10;
+    transition: all 0.2s ease;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo para los pseudo-elementos (íconos de triángulo) */
+.carousel-btn::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    transition: border-color 0.2s ease;
+}
+
+/* Botón 'prev' */
+.carousel-btn.prev {
+    left: 20px;
+}
+
+.carousel-btn.prev::before {
+    border-width: 10px 15px 10px 0;
+    border-color: transparent var(--text-color) transparent transparent;
+}
+
+/* Botón 'next' */
+.carousel-btn.next {
+    right: 20px;
+}
+
+.carousel-btn.next::before {
+    border-width: 10px 0 10px 15px;
+    border-color: transparent transparent transparent var(--text-color);
+}
+
+/* Efecto hover y active */
+.carousel-btn:hover {
+    background: var(--shadow-light);
+    box-shadow: 5px 5px 10px var(--shadow-dark),
+                -5px -5px 10px var(--shadow-light);
+}
+
+.carousel-btn:active {
+    box-shadow: inset 5px 5px 10px var(--shadow-dark),
+                inset -5px -5px 10px var(--shadow-light);
+}
+
+/* --- Estilos para la página de inicio --- */
+.cta-btn {
+    margin-top: 20px;
+    display: inline-block;
+    width: auto;
+    padding: 15px 30px;
+}
+
+.project-link {
+    margin-top: 15px;
+    display: block;
+    width: auto;
+    padding: 10px 20px;
+    font-size: 0.9em;
+}
+
+/* Nuevo estilo para que las imágenes se adapten al contenedor */
+.project-media {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: inset 2px 2px 5px var(--shadow-dark),
+                inset -2px -2px 5px var(--shadow-light);
+    margin-top: 20px;
+}
+
+.project-media img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+/* --- Iconos sociales --- */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.social-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 
+        5px 5px 10px var(--shadow-dark),
+        -5px -5px 10px var(--shadow-light);
+    transition: all 0.3s ease;
+}
+
+/* --- Estilo del interruptor deslizante --- */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin-left: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--bg-color);
+    box-shadow: 
+        inset 2px 2px 5px var(--shadow-dark),
+        inset -2px -2px 5px var(--shadow-light);
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #8c8c8c;
+    transition: .4s;
+    box-shadow: 
+        2px 2px 4px var(--shadow-dark),
+        -2px -2px 4px var(--shadow-light);
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--bg-color);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+    background-color: #555;
+}
+
+
+/* --- Animación del botón de contacto --- */
+.send-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+body {
+    --text-color-rgb: 51, 51, 51;
+}
+body.dark-mode {
+    --text-color-rgb: 240, 240, 240;
+}
+
+.send-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(var(--text-color-rgb), 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.send-btn:hover::after {
+    left: 100%;
+}
+
+.send-btn.sending {
+    box-shadow: inset 5px 5px 10px var(--shadow-dark), inset -5px -5px 10px var(--shadow-light);
+    pointer-events: none;
+}
+
+/* --- Secciones desplegables (Acerca de mí) --- */
+.accordion-item {
+    margin-bottom: 15px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    background: var(--bg-color);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 
+        5px 5px 10px var(--shadow-dark),
+        -5px -5px 10px var(--shadow-light);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.accordion-header:hover {
+    box-shadow: 
+        2px 2px 5px var(--shadow-dark),
+        -2px -2px 5px var(--shadow-light);
+    transform: translateY(-2px);
+}
+
+.accordion-header h3 {
+    margin: 0;
+    color: var(--text-color);
+}
+
+.accordion-header .icon {
+    font-size: 1.5em;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+    color: var(--text-color);
+}
+
+.accordion-header.active .icon {
+    transform: rotate(45deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    padding: 0 20px;
+    background: var(--bg-color);
+    border-radius: 0 0 15px 15px;
+    box-shadow: 
+        inset 2px 2px 5px var(--shadow-dark),
+        inset -2px -2px 5px var(--shadow-light);
+    transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+    overflow: hidden;
+}
+
+.accordion-content.show {
+    max-height: 500px;
+    padding: 20px;
+}
+
+.accordion-content p {
+    margin-bottom: 10px;
+}
+
+/* --- Animaciones de transición entre páginas --- */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutLeft {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(-100%); opacity: 0; }
+}
+
+@keyframes slideInLeft {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}

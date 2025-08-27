@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acerca de Mí - Mi Portafolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="star-background"></div>
+
+    <header class="header">
+        <nav class="liquid-glass-menu">
+            <a href="index.html">Inicio</a>
+            <a href="proyectos.html">Proyectos</a>
+            <a href="acerca-de-mi.html">Acerca de mí</a>
+            <a href="contacto.html">Contacto</a>
+            <label class="switch">
+                <input type="checkbox" id="theme-toggle">
+                <span class="slider round"></span>
+            </label>
+        </nav>
+    </header>
+    
+    <div id="page-transition-container">
+        <main>
+            <section id="acerca-de-mi" class="neumorphic-card fade-in">
+                <h2>Acerca de mí</h2>
+                
+                <div class="accordion">
+                    <div class="accordion-item neumorphic-card">
+                        <button class="accordion-header">
+                            <h3>Habilidades</h3>
+                            <span class="icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Diseño UX/UI, Desarrollo Front-end (HTML, CSS, JavaScript, React), Diseño Gráfico (Photoshop, Illustrator), Prototipado (Figma, Adobe XD).</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item neumorphic-card">
+                        <button class="accordion-header">
+                            <h3>Experiencia Laboral</h3>
+                            <span class="icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <p><strong>Diseñador Web | Empresa X</strong> (2020 - Actual)<br>Desarrollo y mantenimiento de interfaces de usuario para proyectos web y móviles.</p>
+                            <p><strong>Diseñador Gráfico Jr. | Agencia Y</strong> (2018 - 2020)<br>Creación de material gráfico para campañas publicitarias.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item neumorphic-card">
+                        <button class="accordion-header">
+                            <h3>Educación</h3>
+                            <span class="icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <p><strong>Grado en Diseño Web y Multimedia</strong> | Universidad Z (2015 - 2019)</p>
+                            <p><strong>Diplomado en UI/UX</strong> | Instituto W (2019)</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
